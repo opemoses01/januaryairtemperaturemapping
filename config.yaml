@@ -1,0 +1,58 @@
+# Edit these settings before running RUN_ALL.py
+project:
+  name: "Southwestern_Nigeria_January_Air_Temperature"
+  gee_cloud_project: "REPLACE_WITH_EARTH_ENGINE_CLOUD_PROJECT_ID"
+  boundary_file: "01_BOUNDARY/studyarea/Southwest.shp"
+  manuscript_template: "AirTemp.docx"
+  oauth_client_id: "REPLACE_WITH_OAUTH_CLIENT_ID"
+
+study:
+  main_start_year: 2000
+  main_end_year: 2026
+  baseline_start_year: 1991
+  baseline_end_year: 2000
+  month: 1
+  month_name: "January"
+  states:
+    - "Oyo"
+    - "Ogun"
+    - "Osun"
+    - "Lagos"
+    - "Ekiti"
+    - "Ondo"
+  # Leave blank for automatic detection. If detection fails, enter the exact
+  # attribute column name in the shapefile, e.g. "state_name".
+  state_name_field: "NAME_1"
+  # Optional: map shapefile values to the six expected names.
+  # Example:
+  # state_name_mapping:
+  #   "OYO STATE": "Oyo"
+  #   "Ogun State": "Ogun"
+  state_name_mapping: {}
+
+gee:
+  collection: "ECMWF/ERA5_LAND/HOURLY"
+  band: "temperature_2m"
+  native_scale_m: 11132
+  crs: "EPSG:4326"
+  # A direct Earth Engine download is used for the compact study-area stacks.
+  # If the GEE download service rejects the request, use the Drive-export
+  # alternative described in README.md.
+
+analysis:
+  # Albers equal-area for fractional cell/state intersection-area weighting.
+  equal_area_crs: "+proj=aea +lat_1=4 +lat_2=12 +lat_0=8 +lon_0=4.5 +datum=WGS84 +units=m +no_defs"
+  # Presentation-only bilinear resampling; statistical analysis stays on native ERA5-Land grid.
+  display_resolution_m: 1000
+  alpha: 0.05
+  fdr_alpha: 0.05
+  use_fdr_for_final_classification: true
+  minimum_valid_years: 25
+  autocorrelation_alpha: 0.05
+  map_dpi: 300
+
+paths:
+  data_dir: "03_DATA_DOWNLOAD"
+  output_dir: "08_OUTPUTS"
+
+

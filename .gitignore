@@ -1,0 +1,17 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+*credentials*
+*token*
+*client_secret*
+03_DATA_DOWNLOAD/*
+!03_DATA_DOWNLOAD/README.md
+08_OUTPUTS/*
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

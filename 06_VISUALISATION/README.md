@@ -1,0 +1,1 @@
+All maps and graphs are generated from the analyzed rasters by `analysis.py` during `RUN_ALL.py`. Outputs are saved to `outputs/Maps/` and `outputs/Graphs/`. Rerun analysis after changing data or configuration to refresh them.

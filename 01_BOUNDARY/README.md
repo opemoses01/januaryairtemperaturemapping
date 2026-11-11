@@ -1,0 +1,1 @@
+The project includes `studyarea/Southwest.shp` and its required companion files. It contains six Nigeria state features and the `NAME_1` field with Ekiti, Lagos, Ogun, Ondo, Osun and Oyo. The runtime config points to this supplied boundary. If you use another study area, update `project.boundary_file` and `study.state_name_field` in `config.yaml`.

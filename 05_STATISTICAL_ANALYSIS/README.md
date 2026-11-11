@@ -1,0 +1,1 @@
+The named scripts are entry points into the shared analysis engine in the project root. Each entry point regenerates the full analysis so that the statistics, tables, figures and manuscript stay synchronized. Configuration for minimum valid years, autocorrelation screening and FDR is in `config.yaml`.
